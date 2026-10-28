@@ -697,6 +697,19 @@
       }
     ];
 
+    // Use the clearer editorial photos consistently in the model chooser cards.
+    document.querySelectorAll('.model-card').forEach((card) => {
+      const index = Number(card.getAttribute('data-index'));
+      const model = MODELS[index];
+      const image = card.querySelector('img');
+      if (model && image) {
+        image.src = model.imgModal;
+        image.alt = `Rolls-Royce ${model.name} luxury car`;
+        image.loading = 'lazy';
+        image.decoding = 'async';
+      }
+    });
+
     let currentIndex = 5; // Default to Black Badge Wraith as in video
     let isEnginePlaying = false;
 
